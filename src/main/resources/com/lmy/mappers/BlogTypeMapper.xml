@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmy.dao.BlogTypeDao"> 
+
+	<resultMap type="BlogType" id="BlogTypeResult">
+		<result property="id" column="id"/>
+		<result property="typeName" column="typeName"/>
+		<result property="orderNo" column="orderNo"/>
+	</resultMap>
+	
+	<select id="countList" resultMap="BlogTypeResult">
+		select * from t_blogtype order by orderNo ;
+	</select>
+
+</mapper> 

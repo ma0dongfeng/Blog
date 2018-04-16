@@ -201,12 +201,7 @@
 			<div class="data_list">
 				<div class="data_list_title">
 					<img src="${pageContext.request.contextPath}/static/images/link_icon.png"/>
-					友情链接111
-					
-					
-					
-					
-					
+					友情链接
 				</div>
 				<div class="datas">
 					<ul>
