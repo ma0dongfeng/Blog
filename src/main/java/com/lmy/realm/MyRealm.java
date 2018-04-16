@@ -34,8 +34,8 @@ public class MyRealm extends AuthorizingRealm {
 
 	// 验证当前登入用户
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken arg0) throws AuthenticationException {
-		String userName = (String) arg0.getPrincipal();
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+		String userName = (String) token.getPrincipal();
 		Blogger blogger = bloggerService.getByUserName(userName);
 		if (blogger != null) {
 			SecurityUtils.getSubject().getSession().setAttribute("currentUser", blogger);//把当前用户信息存入session中
