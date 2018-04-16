@@ -36,7 +36,7 @@ public class BloggerController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("blogger", blogger);
-			request.setAttribute("errorInfo", "用户名或密码错误");
+			request.setAttribute("errorInfo", "用户名或秘密错误");
 			return "login";
 		}
 	}
