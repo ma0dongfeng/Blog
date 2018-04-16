@@ -13,7 +13,11 @@ import com.lmy.entity.Link;
  */
 public interface LinkService {
 
-	// 查询所以友情链接
+	/**
+	 * 查找友情链接信息
+	 * @param map
+	 * @return
+	 */
 	public List<Link> list(Map<String, Object> map);
 
 }

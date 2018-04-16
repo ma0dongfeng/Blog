@@ -6,7 +6,7 @@ package com.lmy.entity;
  *
  */
 public class Link {
-	private Integer id;
+	private Integer id; 
 	private String linkName;
 	private String linkUrl;
 	private Integer orderNo;

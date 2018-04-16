@@ -159,23 +159,9 @@
 				</div>
 				<div class="datas">
 					<ul>
-						
-							<li><span><a href="/index.html?typeId=1">Java核心基础(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=2">Mysql(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=3">Tomcat(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=10">jsoup(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=7">shiro(1)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=9">webservice(2)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=4">IT之路(3)</a></span></li>
-						
-							<li><span><a href="/index.html?typeId=5">随心生活(2)</a></span></li>
-						
+						<c:forEach var="blogTypeCount" items="${blogTypeCountList}">
+							<li><span><a href="#">${blogTypeCount.typeName}(${blogTypeCount.blogCount})</a></span></li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -189,11 +175,9 @@
 				</div>
 				<div class="datas">
 					<ul>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年02月">2016年02月(11)</a></span></li>
-						
-							<li><span><a href="/index.html?releaseDateStr=2016年01月">2016年01月(1)</a></span></li>
-						
+						<c:forEach var="blogCount" items="${blogCountList}">
+							<li><span><a href="#">${blogCount.releaseDateStr}(${blogCount.blogCount})</a></span></li>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -205,10 +189,9 @@
 				</div>
 				<div class="datas">
 					<ul>
-						<c:forEach var="link" items="${linkList }">
-						<li><span><a href="${link.linkUrl }" target="_blank">${link.linkName }</a></span></li>
+						<c:forEach var="link" items="${linkList}">
+						<li><span><a href="${link.linkUrl}" target="_blank">${link.linkName}</a></span></li>
 						</c:forEach>
-						
 					</ul>
 				</div>
 			</div>

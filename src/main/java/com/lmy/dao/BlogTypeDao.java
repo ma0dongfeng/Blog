@@ -11,5 +11,9 @@ import com.lmy.entity.BlogType;
  */
 public interface BlogTypeDao {
 
+	/**
+	 * 查询所有博客类型和数量
+	 * @return
+	 */
 	public List<BlogType> countList();
 }
