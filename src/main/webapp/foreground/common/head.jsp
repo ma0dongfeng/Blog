@@ -3,8 +3,8 @@
 
 <div class="row">
 	<div class="col-md-4">
-		<img alt="java12 34开源博客系统"
-			src="${pageContext.request.contextPath}/static/images/logo.png">
+		<img alt="个人博客"
+			src="${pageContext.request.contextPath}/static/images/timg.jpg">
 	</div>
 	<div class="col-md-8">
 		<iframe style="float: right;" width="420" scrolling="no" height="60"

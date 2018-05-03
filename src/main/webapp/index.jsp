@@ -22,7 +22,7 @@
 <div class="container">
 	<div class="row">
 	  <div class="col-md-4">
-	  	<img alt="java1234开源博客系统" src="${pageContext.request.contextPath}/static/images/logo.png">
+	  	<img alt="个人博客" src="${pageContext.request.contextPath}/static/images/logo.png">
 	  </div>
 	  <div class="col-md-8">
 	  	<iframe style="float: right;" width="420" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5"></iframe>
@@ -197,15 +197,6 @@
 			</div>
 	  		
 	  </div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12" >
-			<div align="center" style="padding-top: 120px" >
-				<span style="float: left;">Powered by <a  href="http://blog.java1234.com" target="_blank">Java1234</a> V1.0</span>
-				  Copyright © 2012-2016 Java知识分享网 版权所有
-			</div>
-		</div>
 	</div>
 
 	
