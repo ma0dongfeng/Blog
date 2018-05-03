@@ -1,6 +1,8 @@
 package com.lmy.entity;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * 博客实体
@@ -21,6 +23,9 @@ public class Blog {
 	private String keyWord;//关键字 控股隔开
 	private Integer blogCount;//博客数量 非博客实际属性  
 	private String releaseDateStr;//发布日期字符串 非博客实际属性
+	
+	private List<String> imageList = new LinkedList<String>();//博客图片集合 用于缩略图展示
+	
 	public Integer getId() {
 		return id;
 	}
@@ -86,6 +91,12 @@ public class Blog {
 	}
 	public void setReleaseDateStr(String releaseDateStr) {
 		this.releaseDateStr = releaseDateStr;
+	}
+	public List<String> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<String> imgeList) {
+		this.imageList = imageList;
 	}
 	
 	
