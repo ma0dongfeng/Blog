@@ -1,6 +1,7 @@
 package com.lmy.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -24,6 +25,16 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public List<Blog> countList() {
 		return blogDao.countList();
+	}
+
+	@Override
+	public List<Blog> list(Map<String, Object> map) {
+		return blogDao.list(map);
+	}
+
+	@Override
+	public long getTotal(Map<String, Object> map) {
+		return blogDao.getTotal(map);
 	}
 
 }

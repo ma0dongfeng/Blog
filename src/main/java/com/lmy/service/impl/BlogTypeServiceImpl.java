@@ -26,5 +26,11 @@ public class BlogTypeServiceImpl implements BlogTypeService {
 		
 		return blogTypeDao.countList();
 	}
+
+	@Override
+	public BlogType findById(Integer id) {
+		
+		return blogTypeDao.findById(id);
+	}
 	
 }

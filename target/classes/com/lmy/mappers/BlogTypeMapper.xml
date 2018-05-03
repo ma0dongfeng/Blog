@@ -13,5 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="countList" resultMap="BlogTypeResult">
 		SELECT t2.id,t2.typeName,COUNT(t1.id) as blogCount FROM t_blog t1 RIGHT JOIN t_blogtype t2 on t1.typeId=t2.id GROUP BY t2.typeName ORDER BY t2.orderNo;
 	</select>
+	
+	<select id="findById" parameterType="Integer" resultMap="BlogTypeResult">
+		SELECT * FROM t_blogtype WHERE id=#{id}
+	</select>
 
 </mapper> 
