@@ -66,9 +66,24 @@ public class IndexController {
 		}
 		mav.addObject("blogList",blogList);
 		StringBuffer param = new StringBuffer();
+		if(StringUtil.isNotEmpty(typeId)) {
+			param.append("typeId="+typeId+"&");
+		}
+		if(StringUtil.isNotEmpty(releaseDateStr)) {
+			param.append("releaseDateStr="+releaseDateStr+"&");
+		}
 		mav.addObject("pageCode",PageUtil.genPagination(request.getContextPath()+"/index.html", blogService.getTotal(map), Integer.parseInt(page), 10, param.toString()));
 		mav.addObject("pageTitle", "个人主页");
 		mav.addObject("mainPage","foreground/blog/list.jsp");
+		mav.setViewName("mainTemp");
+		return mav;
+	}
+	
+	@RequestMapping("/download")
+	public 	ModelAndView download()throws Exception{
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("mainPage","foreground/system/download.jsp");
+		mav.addObject("pageTitle", "资源下载");
 		mav.setViewName("mainTemp");
 		return mav;
 	}
