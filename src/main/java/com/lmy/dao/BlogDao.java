@@ -31,5 +31,19 @@ public interface BlogDao {
 	 * @return
 	 */
 	public long getTotal(Map<String, Object> map);
+	
+	/**
+	 * 根据id查找博客
+	 * @param id
+	 * @return
+	 */
+	public Blog findById(Integer id);
+	
+	/**
+	 * 更新博客内容
+	 * @param blog
+	 * @return
+	 */
+	public Integer update(Blog blog);
 
 }
