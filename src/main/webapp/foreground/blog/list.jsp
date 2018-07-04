@@ -13,12 +13,12 @@
 		<ul>
 			<c:forEach var="blog" items="${blogList}">
 			<li style="margin-bottom: 30px">
-				<span class="date"><fmt:formatDate value="${blog.releaseDate}" type="date" pattern="yyyy年MM月dd日"/></span>
-				<span class="title"><a href="${pageContext.request.contextPath}/blog/articles/52.html">${blog.title}</a></span>
+				<span class="date"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html"><fmt:formatDate value="${blog.releaseDate}" type="date" pattern="yyyy年MM月dd日"/></span>
+				<span class="title"><a href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html">${blog.title}</a></span>
 				<span class="summary">摘要:${blog.summary}...</span> 
 				<span class="img">
 					<c:forEach var="image" items="${blog.imageList }">
-					<a href="/blog/articles/52.html">${image}</a> &nbsp;&nbsp;
+					<a href="/blog/articles/${blog.id}.html">${image}</a> &nbsp;&nbsp;
 					</c:forEach>
 				</span>  
 				<span class="info">发表于 <fmt:formatDate value="${blog.releaseDate}" type="date" pattern="yyyy-MM-dd HH:mm"/> 阅读(${blog.clickHit}) 评论(${blog.replyHit}) </span></li>
