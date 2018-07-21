@@ -42,3 +42,25 @@
 		
 	</div>
 </div>
+<div class="data_list">
+	<div class="data_list_title">
+		<img
+			src="${pageContext.request.contextPath}/static/images/comment_icon.png" />
+		评论信息
+	</div>
+	<div class="commentDatas">
+		<c:choose>
+			<c:when test="${commentList.size()==0 }">
+				暂无评论
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="comment" items="${commentList}" varStatus="status">
+					<div class="comment">
+						<span><font>${status.index+1}楼&nbsp;&nbsp;&nbsp;${comment.userIp}:</font>${comment.content }&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${comment.commentDate}" type="date" pattern="yyyy-MM-dd HH:mm"/></span>
+					</div>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
+	
+	</div>
+</div>

@@ -1,6 +1,8 @@
 package com.lmy.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lmy.entity.Blog;
 import com.lmy.service.BlogService;
+import com.lmy.service.CommentService;
 import com.lmy.util.StringUtil;
 
 /**
@@ -28,6 +31,9 @@ public class BlogController {
 	@Resource
 	private BlogService blogService;
 	
+	@Resource
+	private CommentService commentService;
+	
 	@RequestMapping("/articles/{id}")
 	public ModelAndView details(@PathVariable("id")Integer id,HttpServletRequest request)throws Exception{
 		ModelAndView mav = new ModelAndView();
@@ -42,7 +48,13 @@ public class BlogController {
 		mav.addObject("blog",blog);
 		blog.setClickHit(blog.getClickHit()+1);
 		blogService.update(blog);
-		mav.addObject("pageCode",this.getUpAndDownPageCode(blogService.getLastBlog(id), blogService.getNextBlog(id), request.getServletContext().getContextPath()));
+		Map<String, Object> map = new HashMap<>();
+		map.put("blogId", blog.getId());
+		map.put("state", 1);
+		mav.addObject("commentList",commentService.list(map));
+		Blog lastBlog = blogService.getLastBlog(id);
+		Blog nextBlog = blogService.getNextBlog(id);
+		mav.addObject("pageCode",this.getUpAndDownPageCode(lastBlog,nextBlog, request.getServletContext().getContextPath()));
 		mav.addObject("pageTitle", blog.getTitle());
 		mav.addObject("mainPage","foreground/blog/view.jsp");
 		mav.setViewName("mainTemp");
@@ -60,14 +72,15 @@ public class BlogController {
 		if(lastBlog==null || lastBlog.getId()==null) {
 			pageCode.append("<p>上一篇：没有了</p>");
 		}else {
-			pageCode.append("<p><a href='"+prjectContext +"'/blog/articles/"+lastBlog.getId()+".html>上一篇："+lastBlog.getTitle()+"</a></p>");
+			pageCode.append("<p><a href='"+prjectContext +"/blog/articles/"+lastBlog.getId()+".html'>上一篇："+lastBlog.getTitle()+"</a></p>");
 		}
-		if(lastBlog==null || nextBlog.getId()==null) {
+		if(nextBlog==null || nextBlog.getId()==null) {
 			pageCode.append("<p>下一篇：没有了</p>");
 		}else {
-			pageCode.append("<p><a href='"+prjectContext +"'/blog/articles/"+nextBlog.getId()+".html>上一篇："+nextBlog.getTitle()+"</a></p>");
+			pageCode.append("<p><a href='"+prjectContext +"/blog/articles/"+nextBlog.getId()+".html'>下一篇："+nextBlog.getTitle()+"</a></p>");
 		}
 		return pageCode.toString();
 	}
 
 }
+
